@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import CompetitionDetails from './competitionDetails'
 
 export default class Competitions extends React.Component{
     constructor(props){
@@ -18,6 +19,9 @@ export default class Competitions extends React.Component{
                     <span onClick={() => {
                         this.props.showCompetition(2021)
                     }}>Premier League</span>
+                </div>
+                <div>
+                    {this.props.table !== null ? <CompetitionDetails table={this.props.table}/> : null}
                 </div>
             </div>
         )

@@ -15,6 +15,28 @@ import Footer from './footer'
 import '../sass/style.scss';
 
 class Container extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            table: null
+        }
+    }
+
+    showCompetition = (id) => {
+        fetch(`http://api.football-data.org/v2/competitions/${id}/standings`, {
+            headers: {
+                'X-Auth-Token': '874809121d3740cfafb15bed038e6a28'
+            }
+        })
+            .then(response => response.json())
+            .then((data) => {
+                //console.log(data.standings[0].table[0].team.name);
+                this.setState({
+                    table: data.standings[0].table
+                })
+            })
+    }
+    
     render(){
         return(
             <HashRouter>
@@ -23,7 +45,7 @@ class Container extends React.Component{
                 <Menu/>
                 <Switch>
                     <Route exact path='/' component={Favourites}/>
-                    <Route path='/competitions' component={Competitions}/>
+                    <Route path='/competitions' render={() => {return <Competitions table={this.state.table} showCompetition={this.showCompetition}/>}}/>
                 </Switch>
                 <Footer/>
 
