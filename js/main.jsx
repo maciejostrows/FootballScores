@@ -18,6 +18,7 @@ class Container extends React.Component{
     constructor(props){
         super(props);
         this.state = {
+            language: 'pol',
             table: null
         }
     }
@@ -30,24 +31,35 @@ class Container extends React.Component{
         })
             .then(response => response.json())
             .then((data) => {
-                //console.log(data.standings[0].table[0].team.name);
                 this.setState({
                     table: data.standings[0].table
                 })
             })
+    }
+
+    setPolishLanguage = () => {
+        this.setState({
+            language: 'pol'
+        })
+    }
+
+    setEnglishLanguage = () => {
+        this.setState({
+            language: 'eng'
+        })
     }
     
     render(){
         return(
             <HashRouter>
             <div className={'container'}>
-                <Header/>
-                <Menu/>
+                <Header language={this.state.language} setPolishLanguage={this.setPolishLanguage} setEnglishLanguage={this.setEnglishLanguage}/>
+                <Menu language={this.state.language}/>
                 <Switch>
-                    <Route exact path='/' component={Favourites}/>
+                    <Route exact path='/' render={() => {return <Favourites language={this.state.language}/>}}/>
                     <Route path='/competitions' render={() => {return <Competitions table={this.state.table} showCompetition={this.showCompetition}/>}}/>
                 </Switch>
-                <Footer/>
+                <Footer language={this.state.language}/>
 
             </div>
             </HashRouter>

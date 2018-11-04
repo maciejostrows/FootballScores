@@ -7,7 +7,6 @@ export default class CompetitionDetails extends React.Component{
     }
     
     render(){
-        //console.log(this.props.table);
         return(
             <div>
                 <table>
