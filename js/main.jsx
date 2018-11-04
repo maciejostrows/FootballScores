@@ -11,6 +11,7 @@ import Header from './header';
 import Menu from './menu';
 import Favourites from './favourites';
 import Competitions from './competitions';
+import TeamDetails from './teamDetails'
 import Footer from './footer'
 import '../sass/style.scss';
 
@@ -57,7 +58,8 @@ class Container extends React.Component{
                 <Menu language={this.state.language}/>
                 <Switch>
                     <Route exact path='/' render={() => {return <Favourites language={this.state.language}/>}}/>
-                    <Route path='/competitions' render={() => {return <Competitions table={this.state.table} showCompetition={this.showCompetition}/>}}/>
+                    <Route path='/competitions' render={() => {return <Competitions table={this.state.table} showCompetition={this.showCompetition} language={this.state.language}/>}}/>
+                    <Route path='/team/:teamId' render={(props) => {return <TeamDetails table={this.state.table} showCompetition={this.showCompetition} language={this.state.language} {...props}/>}}/>
                 </Switch>
                 <Footer language={this.state.language}/>
 
