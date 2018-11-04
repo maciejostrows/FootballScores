@@ -11,6 +11,7 @@ import Header from './header';
 import Menu from './menu';
 import Favourites from './favourites';
 import Competitions from './competitions';
+import CompetitionDetails from './competitionDetails'
 import TeamDetails from './teamDetails'
 import Footer from './footer'
 import '../sass/style.scss';
@@ -19,23 +20,8 @@ class Container extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            language: 'pol',
-            table: null
+            language: 'pol'
         }
-    }
-
-    showCompetition = (id) => {
-        fetch(`http://api.football-data.org/v2/competitions/${id}/standings`, {
-            headers: {
-                'X-Auth-Token': '874809121d3740cfafb15bed038e6a28'
-            }
-        })
-            .then(response => response.json())
-            .then((data) => {
-                this.setState({
-                    table: data.standings[0].table
-                })
-            })
     }
 
     setPolishLanguage = () => {
@@ -58,8 +44,9 @@ class Container extends React.Component{
                 <Menu language={this.state.language}/>
                 <Switch>
                     <Route exact path='/' render={() => {return <Favourites language={this.state.language}/>}}/>
-                    <Route path='/competitions' render={() => {return <Competitions table={this.state.table} showCompetition={this.showCompetition} language={this.state.language}/>}}/>
-                    <Route path='/team/:teamId' render={(props) => {return <TeamDetails table={this.state.table} showCompetition={this.showCompetition} language={this.state.language} {...props}/>}}/>
+                    <Route path='/competitions' render={() => {return <Competitions language={this.state.language}/>}}/>
+                    <Route path='/competition/:competitionId' render={(props) => {return <CompetitionDetails language={this.state.language} {...props}/>}}/>
+                    <Route path='/team/:teamId' render={(props) => {return <TeamDetails language={this.state.language} {...props}/>}}/>
                 </Switch>
                 <Footer language={this.state.language}/>
 
