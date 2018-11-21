@@ -4,24 +4,21 @@ body{
  display: flex;
  justify-content: center;
  //background-color: black;
- //color: #ffffff;
+ color: #ffffff;
+ box-sizing: border-box;
+}
+
+ul{
+  margin: 0;
 }
 
 .container{
  min-width: 1200px;
 }
 
-.menuItem{
-  display: inline-block;
-  width: 50%;
-  box-sizing: border-box;
-  text-align: center;
-}
-
 .header{
   background-color: $bgblue;
   text-align: center;
-  //position: relative;
   height: 150px;
   display: flex;
   align-items: center;
@@ -44,5 +41,22 @@ body{
 
 .language-button:hover{
   cursor: pointer;
+}
+
+.menu{
+  background-color: $bgblue;
+  height: 80px;
+}
+
+.menuItem{
+  display: inline-block;
+  width: 50%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.menuItem a{
+  color: #ffffff;
+  text-decoration: none;
 }
 
