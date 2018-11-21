@@ -1,16 +1,48 @@
-//body{
-//  display: flex;
-//  justify-content: center;
-//}
+$bgblue: blue;
 
-//.container{
-//  min-width: 1200px;
-//}
+body{
+ display: flex;
+ justify-content: center;
+ //background-color: black;
+ //color: #ffffff;
+}
+
+.container{
+ min-width: 1200px;
+}
 
 .menuItem{
   display: inline-block;
   width: 50%;
   box-sizing: border-box;
   text-align: center;
+}
+
+.header{
+  background-color: $bgblue;
+  text-align: center;
+  //position: relative;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.language-buttons{
+  position: absolute;
+  right: 130px;
+  top: 20px;
+  display: flex;
+}
+
+.language-button{
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  margin: 10px;
+}
+
+.language-button:hover{
+  cursor: pointer;
 }
 

@@ -1,0 +1,9 @@
+.button-polish{
+    background-image: url(../flags/poland-flag-button-round-xs.png);
+    background-size: cover;
+  }
+
+  .button-english{
+    background-image: url(../flags/united-kingdom-flag-button-round-xs.png);
+    background-size: cover;
+  }

@@ -7,11 +7,11 @@ export default class Header extends React.Component{
     }
     render(){
         return(
-            <div>
-                <h1>Tu bedzie naglowek</h1>
-                <div>
-                    <button onClick={this.props.setPolishLanguage}>Polski</button>
-                    <button onClick={this.props.setEnglishLanguage}>English</button>
+            <div className={'header'}>
+                <h1>Football Scores</h1>
+                <div className={'language-buttons'}>
+                    <div onClick={this.props.setPolishLanguage} className={'language-button button-polish'}></div>
+                    <div onClick={this.props.setEnglishLanguage} className={'language-button button-english'}></div>
                 </div>
             </div>
         )
