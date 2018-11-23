@@ -17,7 +17,7 @@ export default class Competitions extends React.Component{
     
     render(){
         return(
-            <div>
+            <div className={'competitions'}>
                 <div>
                     <Link to={`/competition/2014`}>La Liga</Link>
                 </div>

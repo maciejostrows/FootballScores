@@ -35,7 +35,7 @@ export default class CompetitionDetails extends React.Component{
     render() {
         if (this.state.table !== null) {
             return (
-                <div>
+                <div className={'competition'}>
                     <Competitions/>
                     <table>
                         <tbody>

@@ -12,6 +12,10 @@ ul{
   margin: 0;
 }
 
+a{
+  color: #ffffff;
+}
+
 .container{
  min-width: 1200px;
 }
@@ -58,5 +62,29 @@ ul{
 .menuItem a{
   color: #ffffff;
   text-decoration: none;
+}
+
+.footer{
+  background-color: $bgblue;
+  height: 200px;
+}
+
+.favourites{
+  background-color: $bgblue;
+  min-height: 400px;
+}
+
+.competitions{
+  background-color: $bgblue;
+  min-height: 150px;
+}
+
+.competition{
+  background-color: $bgblue;
+}
+
+.team-details{
+  background-color: $bgblue;
+  min-height: 300px;
 }
 
