@@ -64,7 +64,8 @@ export default class TeamDetails extends React.Component{
                         </tr>
                         <tr>
                             <td>{checkLanguage(this.props.language, 'Witryna Web', 'Website')}</td>
-                            <td><Link to={this.state.team.website}>{this.state.team.website}</Link></td>
+                            <td><a href = {this.state.team.website}>{this.state.team.website}</a>
+                            </td>
                         </tr>
                         <tr>
                             <td>{checkLanguage(this.props.language, 'Rok powstania', 'Founded')}</td>
