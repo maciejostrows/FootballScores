@@ -8,12 +8,14 @@ import {
     NavLink,
 } from 'react-router-dom';
 import checkLanguage from './functions';
+import TeamDetailsInfo from './teamDetailsInfo'
 
 export default class TeamDetails extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            team: null
+            team: null,
+            activeTab: 'info'
         }
     }
 
@@ -31,54 +33,37 @@ export default class TeamDetails extends React.Component{
             })
     }
 
+    setInfo = () => {
+        this.setState({
+            activeTab: 'info'
+        })
+    }
+
+    setSquad = () => {
+        this.setState({
+            activeTab: 'squad'
+        })
+    }
+
     render(){
-        console.log(this.state.team);
-        if(this.state.team !== null){
-            this.activeCompetitionsTab = [];
-            this.state.team.activeCompetitions.map((row, index) => {
-                this.activeCompetitionsTab.push(this.state.team.activeCompetitions[index].name);
-            });
+        if(this.state.activeTab == 'info'){
+            this.componentToRender = <TeamDetailsInfo team={this.state.team}/>
+        } else if(this.state.activeTab == 'squad'){
+            this.componentToRender = <TeamDetailsSquad team={this.state.team}/>
+        }
+
         return(
-            <div className={'team-details'}>
-                <table>
-                    <tbody>
-                        <tr>
-                        <td>{checkLanguage(this.props.language, 'Nazwa', 'Name')}</td>
-                        <td>{this.state.team.name}</td>
-                        </tr>
-                        <tr>
-                            <td>{checkLanguage(this.props.language, 'Rozgrywki', 'Competitions')}</td>
-                            <td>{this.activeCompetitionsTab}</td>
-                        </tr>
-                        <tr>
-                            <td>{checkLanguage(this.props.language, 'Kraj', 'Country')}</td>
-                            <td>{this.state.team.area.name}</td>
-                        </tr>
-                        <tr>
-                            <td>{checkLanguage(this.props.language, 'Adres', 'Address')}</td>
-                            <td>{this.state.team.address}</td>
-                        </tr>
-                        <tr>
-                            <td>{checkLanguage(this.props.language, 'E-mail', 'E-mail')}</td>
-                            <td>{this.state.team.email}</td>
-                        </tr>
-                        <tr>
-                            <td>{checkLanguage(this.props.language, 'Witryna Web', 'Website')}</td>
-                            <td><a href = {this.state.team.website}>{this.state.team.website}</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>{checkLanguage(this.props.language, 'Rok powstania', 'Founded')}</td>
-                            <td>{this.state.team.founded}</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div>
+                <div className={'menu'}>
+                    <ul>
+                        <li className={'menuItem'} onClick={this.setInfo}>{checkLanguage(this.props.language, 'Informacje', 'Info')}</li>
+                        <li className={'menuItem'} onClick={this.setSquad}>{checkLanguage(this.props.language, 'Skład', 'Squad')}</li>
+                    </ul>
+                </div>
+                <div>
+                    {this.componentToRender}
+                </div>
             </div>
         )
-        } else{
-            return(
-                <div>Ładowanie</div>
-            )
-        }
     }
 }
