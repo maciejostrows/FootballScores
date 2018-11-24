@@ -8,7 +8,8 @@ import {
     NavLink,
 } from 'react-router-dom';
 import checkLanguage from './functions';
-import TeamDetailsInfo from './teamDetailsInfo'
+import TeamDetailsInfo from './teamDetailsInfo';
+import TeamDetailsSquad from './teamDetailsSquad';
 
 export default class TeamDetails extends React.Component{
     constructor(props){
@@ -47,9 +48,9 @@ export default class TeamDetails extends React.Component{
 
     render(){
         if(this.state.activeTab == 'info'){
-            this.componentToRender = <TeamDetailsInfo team={this.state.team}/>
+            this.componentToRender = <TeamDetailsInfo team={this.state.team} language={this.props.language}/>
         } else if(this.state.activeTab == 'squad'){
-            this.componentToRender = <TeamDetailsSquad team={this.state.team}/>
+            this.componentToRender = <TeamDetailsSquad team={this.state.team} language={this.props.language}/>
         }
 
         return(
