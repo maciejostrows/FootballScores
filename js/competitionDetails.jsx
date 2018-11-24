@@ -8,6 +8,7 @@ import {
     NavLink,
 } from 'react-router-dom';
 import Competitions from './competitions'
+import FavouriteSwitcher from './favouriteSwitcher'
 import checkLanguage from './functions'
 
 export default class CompetitionDetails extends React.Component{
@@ -30,6 +31,12 @@ export default class CompetitionDetails extends React.Component{
                     table: data.standings[0].table
                 })
             })
+
+            if(localStorage.getItem('favCompetitions') !== null){
+                this.favCompetitions = JSON.parse(localStorage.getItem('favCompetitions'));
+            } else {
+                this.favCompetitions = {favCompetitions: []};
+            }
     }
     
     render() {
@@ -37,6 +44,7 @@ export default class CompetitionDetails extends React.Component{
             return (
                 <div className={'competition'}>
                     <Competitions/>
+                    <FavouriteSwitcher competitionId={this.props.match.params.competitionId} favCompetitions={this.favCompetitions}/>
                     <table>
                         <tbody>
                         <tr>
