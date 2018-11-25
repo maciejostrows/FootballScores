@@ -65,12 +65,12 @@ export default class TeamDetailsSquad extends React.Component{
         console.log(this.attackers);
         return(
             <div className={'team-details'}>
-                <div>
+                <div className={'pozycja'}>
                     {checkLanguage(this.props.language, 'Bramkarze', 'Goalkeepers')}
                 </div>
                 {this.goalkeepers.map((row, index) => {
                     return(
-                        <div key={index}>
+                        <div key={index} className={'pilkarz'}>
                         <table>
                             <tbody>
                                 <tr>
@@ -99,12 +99,12 @@ export default class TeamDetailsSquad extends React.Component{
                     )
                 })}
 
-                <div>
+                <div className={'pozycja'}>
                     {checkLanguage(this.props.language, 'Obrońcy', 'Defenders')}
                 </div>
                 {this.defenders.map((row, index) => {
                     return(
-                        <div key={index}>
+                        <div key={index} className={'pilkarz'}>
                         <table>
                             <tbody>
                                 <tr>
@@ -133,12 +133,12 @@ export default class TeamDetailsSquad extends React.Component{
                     )
                 })}
 
-                <div>
+                <div className={'pozycja'}>
                     {checkLanguage(this.props.language, 'Pomocnicy', 'Midfielders')}
                 </div>
                 {this.midfielders.map((row, index) => {
                     return(
-                        <div key={index}>
+                        <div key={index} className={'pilkarz'}>
                         <table>
                             <tbody>
                                 <tr>
@@ -167,12 +167,12 @@ export default class TeamDetailsSquad extends React.Component{
                     )
                 })}
 
-                <div>
+                <div className={'pozycja'}>
                     {checkLanguage(this.props.language, 'Napastnicy', 'Attackers')}
                 </div>
                 {this.attackers.map((row, index) => {
                     return(
-                        <div key={index}>
+                        <div key={index} className={'pilkarz'}>
                         <table>
                             <tbody>
                                 <tr>

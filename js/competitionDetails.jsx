@@ -8,7 +8,7 @@ import {
     NavLink,
 } from 'react-router-dom';
 import Competitions from './competitions'
-import FavouriteSwitcher from './favouriteSwitcher'
+import FavouriteCompetitionsSwitcher from './favouriteCompetitionsSwitcher'
 import checkLanguage from './functions'
 
 export default class CompetitionDetails extends React.Component{
@@ -43,8 +43,8 @@ export default class CompetitionDetails extends React.Component{
         if (this.state.table !== null) {
             return (
                 <div className={'competition'}>
-                    <Competitions/>
-                    <FavouriteSwitcher competitionId={this.props.match.params.competitionId} favCompetitions={this.favCompetitions}/>
+                    {/* <Competitions/> */}
+                    <FavouriteCompetitionsSwitcher competitionId={this.props.match.params.competitionId} favCompetitions={this.favCompetitions}/>
                     <table>
                         <tbody>
                         <tr>

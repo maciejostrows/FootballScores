@@ -32,6 +32,12 @@ export default class TeamDetails extends React.Component{
                     team: data
                 })
             })
+
+            if(localStorage.getItem('favTeams') !== null){
+                this.favTeams = JSON.parse(localStorage.getItem('favTeams'));
+            } else {
+                this.favTeams = {favTeams: []};
+            }
     }
 
     setInfo = () => {
@@ -48,7 +54,7 @@ export default class TeamDetails extends React.Component{
 
     render(){
         if(this.state.activeTab == 'info'){
-            this.componentToRender = <TeamDetailsInfo team={this.state.team} language={this.props.language}/>
+            this.componentToRender = <TeamDetailsInfo team={this.state.team} teamId={this.props.match.params.teamId} favTeams={this.favTeams} language={this.props.language}/>
         } else if(this.state.activeTab == 'squad'){
             this.componentToRender = <TeamDetailsSquad team={this.state.team} language={this.props.language}/>
         }

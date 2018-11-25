@@ -8,6 +8,7 @@ import {
     NavLink,
 } from 'react-router-dom';
 import checkLanguage from './functions';
+import FavouriteTeamSwitcher from './favouriteTeamSwitcher';
 
 export default class TeamDetails extends React.Component{
     constructor(props){
@@ -25,8 +26,14 @@ export default class TeamDetails extends React.Component{
             });
         return(
             <div className={'team-details'}>
+            <FavouriteTeamSwitcher favTeams={this.props.favTeams} teamId={this.props.teamId}/>
                 <table>
                     <tbody>
+                        <tr>
+                            <td>
+                                <img src={this.props.team.crestUrl}></img>
+                            </td>
+                        </tr>
                         <tr>
                         <td>{checkLanguage(this.props.language, 'Nazwa', 'Name')}</td>
                         <td>{this.props.team.name}</td>

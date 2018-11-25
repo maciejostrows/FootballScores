@@ -7,3 +7,7 @@
     background-image: url(../flags/united-kingdom-flag-button-round-xs.png);
     background-size: cover;
   }
+
+  body{
+    background-image: url('../tapeta.jpg');
+  }
